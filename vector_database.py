@@ -11,7 +11,7 @@ from pymilvus import (
 from embedding_generation import generate_embedding
 
 
-def bootsrtap() -> Collection:
+def bootsrtap() -> Collection: 
     """Bootsrtap the database."""
     connections.connect(
         alias="default",
@@ -61,7 +61,7 @@ def bootsrtap() -> Collection:
         "params": {"M": 32, "efConstruction": 200},
     }
     collection.create_index(field_name="content_embedding", index_params=index_params)
-    utility.index_building_progress("book")
+    utility.index_building_progress("book") 
     return collection
 
     # database = db.create_database("book")
@@ -85,7 +85,7 @@ def search_data(text: str) -> list[str]:
     collection.load()
     res = collection.search(**search_param)
     print(f"Search result: {res}")
-    hits = res[0]
+    hits: list[str] = res[0]
     print(f"Search hits: {hits}")
     result_content = []
     for hit in hits:

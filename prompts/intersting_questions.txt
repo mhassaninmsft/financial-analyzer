@@ -1,0 +1,2 @@
+We are working on a project where the users can ask questions on a certain set of documents,
+to gelp the user find the right document. We need to prepeare some sample questions from the database. We will first prepare simple questions that perhaps summarizes or answer questions that span a nearby paragraph or two

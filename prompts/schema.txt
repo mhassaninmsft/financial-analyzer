@@ -1,0 +1,47 @@
+from pydantic import BaseModel
+from typing import List, Optional
+
+# 1. Company Information
+class CompanyInformation(BaseModel):
+    company_name: str
+    company_ticker: Optional[str] = None
+    company_location: str
+    company_industry: Optional[str] = None
+    company_size: Optional[str] = None
+    fiscal_year: Optional[str] = None
+    total_employees: Optional[int] = None
+    competitors: Optional[List[str]] = None
+    product_portfolio: Optional[str] = None
+
+# 2. Financial Statement Information
+class FinancialStatementInformation(BaseModel):
+    financial_year: Optional[str] = None
+    statement_date: Optional[str] = None
+    currency: Optional[str] = None
+
+# 3. Acquisition and Investment Information
+class AcquisitionDetails(BaseModel):
+    acquisitions: Optional[List[str]] = None
+    investments: Optional[List[str]] = None
+
+# 4. Other Financial Information
+class OtherFinancialInformation(BaseModel):
+    earnings_per_share: Optional[str] = None
+    income_taxes: Optional[str] = None
+    liquidity_requirements: Optional[str] = None
+
+# 5. Segment Information
+class SegmentInformation(BaseModel):
+    segment_names: Optional[List[str]] = None
+    segment_revenue: Optional[List[str]] = None
+    segment_operating_income: Optional[List[str]] = None
+
+
+# Combined schema
+class FinancialSchema(BaseModel):
+    company_information: CompanyInformation
+    financial_statement_information: FinancialStatementInformation
+    acquisition_details: Optional[AcquisitionDetails]
+    other_financial_information: Optional[OtherFinancialInformation]
+    segment_information: Optional[SegmentInformation]
+    

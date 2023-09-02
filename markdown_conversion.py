@@ -36,17 +36,17 @@ def process_file(file_path: str) -> str:
     with open(file_path, "rb") as docx_file:
         result = mammoth.convert_to_markdown(
             docx_file,
-            convert_image=lambda image: null_image_handler(image, file_path),
+            convert_image=lambda image: custom_image_handler(image, file_path),
         )
         markdown = result.value  # The generated MArkdown
         messages = result.messages  # Any messages, such as warnings during conversion
         logging.debug("messages: %s", messages)
         logging.info("markdown: %s", markdown)
         # Write the markdown to a file
-        output_file_path = "Output/file3.md"
+        output_file_path = "Output/file4.md"
         with open(output_file_path, "w", encoding="utf8") as markdown_file:
             markdown_file.write(markdown)
-        process_markdown_string(markdown)
+        # process_markdown_string(markdown)
     return markdown
 
 

@@ -4,7 +4,7 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 from openai_class import get_open_module
 
 
-@retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
+@retry(stop=stop_after_attempt(5), wait=wait_fixed(1))  
 def generate_embedding(text: str) -> list[float]:
     """Generate embedding for the string."""
     # openai = get_open_module()
